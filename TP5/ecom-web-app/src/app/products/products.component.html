@@ -1,0 +1,44 @@
+<div class="p-3">
+  <div class="card">
+    <div class="card-body">
+      <div>
+        <input [(ngModel)]="keyWord" type="text">
+        <button (click)="searchProducts()" class="btn btn-outline-success m-2 " >Search <i class="bi-search"></i></button>
+<!--        <label>{{keyWord}}</label>-->
+      </div>
+      <table class="table" *ngIf="products">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+<!--          <tr *ngFor="let p of this.productsNF$ | async ">-->
+          <tr *ngFor="let p of this.products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>
+              <button (click)="deleteProduct(p)" class="btn btn-danger" >Delete</button>
+            </td>
+            <!--        <td>-->
+            <!--          <button (click)="deleteProduct()" class="btn btn-outline-success" >Delete</button>-->
+            <!--        </td>-->
+          </tr>
+        </tbody>
+      </table>
+<!--      <ul class="nav nav-pills">-->
+<!--        <li *ngFor="let page of [].constructor(this.page.totalPages); let i=index">-->
+<!--          <button (click)="goToPage(i)"-->
+<!--                  [ngClass]="currentPage==(i)? 'active': ''"-->
+<!--                  class="btn btn-outline-success m-1">-->
+<!--            {{i+1}}-->
+<!--          </button>-->
+<!--        </li>-->
+<!--      </ul>-->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<!-- Grey with black text -->
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav nav-pills">
+      <li class="nav-item" *ngFor="let item of navbarItems" >
+        <button *ngIf="keycloakService.getUserRoles().includes(item.role)"
+          (click)="setCurrentAction(item)"
+          class="btn btn-outline-success ms-1"
+          [class]="item==currentAction? 'active' : '' "
+          routerLink="{{item.route}}">{{item.title}}
+          <i class="bi bi-{{item.icon}} "></i>
+        </button>
+      </li>
+    </ul>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownz" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+          <span *ngIf="profile; else login_template">{{profile.username}}</span>
+          <ng-template #login_template>
+            <button class="btn btn-success" (click)="handlelogin()"> Login </button>
+          </ng-template>
+
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" (click)="handlelogin()" >Login</a></li>
+          <li><a class="dropdown-item" (click)="handlelogout()" >Logout</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet>
+
+</router-outlet>
+<!--&lt;!&ndash; Black background with white text &ndash;&gt;-->
+<!--<nav class="navbar navbar-expand-sm bg-dark navbar-dark">...</nav>-->
+
+<!--&lt;!&ndash; Blue background with white text &ndash;&gt;-->
+<!--<nav class="navbar navbar-expand-sm bg-primary navbar-dark">...</nav>-->
