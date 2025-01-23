@@ -1,6 +1,8 @@
 package com.project.billingservice;
 
 import com.project.billingservice.Models.*;
+import com.project.billingservice.Models.Bill;
+import com.project.billingservice.Models.ProductItem;
 import com.project.billingservice.Repository.*;
 import com.project.billingservice.Services.*;
 import org.springframework.boot.CommandLineRunner;
